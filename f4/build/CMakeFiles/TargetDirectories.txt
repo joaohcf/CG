@@ -1,0 +1,3 @@
+/home/joao/Desktop/CG/f4/build/CMakeFiles/class4.dir
+/home/joao/Desktop/CG/f4/build/CMakeFiles/edit_cache.dir
+/home/joao/Desktop/CG/f4/build/CMakeFiles/rebuild_cache.dir

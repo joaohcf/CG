@@ -1,0 +1,3 @@
+/home/joao/Desktop/CG/f5/build/CMakeFiles/class5.dir
+/home/joao/Desktop/CG/f5/build/CMakeFiles/edit_cache.dir
+/home/joao/Desktop/CG/f5/build/CMakeFiles/rebuild_cache.dir
