@@ -15,8 +15,9 @@
 float alfa = 0.0f, beta = 0.0f, radius = 5.0f;
 float camX, camY, camZ;
 
-GLuint vertexCount, vertices;
-GLuint normalCount, normals;
+GLuint buffers[2];
+GLuint vertexCount;
+GLuint normalCount;
 
 int timebase = 0, frame = 0;
 
@@ -176,12 +177,12 @@ void prepareCilinder(float height, float radius, int sides) {
 	vertexCount = vertex;
 	normalCount = normal;
 
-	glGenBuffers(2, &vertices);
+	glGenBuffers(2, buffers);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertices);
+	glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 3, v, GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ARRAY_BUFFER, normal);
+	glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * normalCount * 3, n, GL_STATIC_DRAW);
 
 	free(v);
@@ -192,11 +193,11 @@ void prepareCilinder(float height, float radius, int sides) {
 
 void drawCilinder() {
 		
-	glBindBuffer(GL_ARRAY_BUFFER,vertices);
+	glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
 	glVertexPointer(3,GL_FLOAT,0,0);
 	glDrawArrays(GL_TRIANGLES, 0, vertexCount);
 
-	glBindBuffer(GL_ARRAY_BUFFER, normals);
+	glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
 	glNormalPointer(GL_FLOAT, 0, 0);
 	glDrawArrays(GL_TRIANGLES, 0, normalCount);
 }
